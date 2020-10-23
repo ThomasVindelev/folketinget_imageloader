@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var timerStart = Date.now();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    Hej
+    <div id="test"></div>
+</body>
+<script>
+    $(document).ready(() => {
+        console.log("Time until DOMready: ", Date.now()-timerStart);
+    });
+
+    $(window).on('load', () => {
+        console.log("Time until everything loaded: ", Date.now()-timerStart);
+    });
+</script>
+</html>
