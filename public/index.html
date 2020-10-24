@@ -11,8 +11,11 @@
     <script src="./index.js"></script>
 </head>
 <body>
-    Hej
-    <div id="test"></div>
+    <h3>Dette er en side, som kan teste indlæsningstider.</h3>
+    <button onclick="loadImages()">Hent billeder</button>
+    <p id="info">Henter tider...</p>
+    <p id="time">&nbsp;</p>
+    <div id="images"></div>
 </body>
 <script>
     $(document).ready(() => {
@@ -20,7 +23,23 @@
     });
 
     $(window).on('load', () => {
+        $('#info').text(`Alt er indlæst!`)
+        $('#time').text(`Tid: ${Date.now()-timerStart} millisekunder`)
         console.log("Time until everything loaded: ", Date.now()-timerStart);
     });
+
+    loadImages = () => {
+        $('#images').empty().removeData()
+        $('body').append('<div id="images"></div>')
+        $.get('/photos', (data) => {
+            data.response.forEach(element => {
+                var img = document.createElement("img");
+                img.src = "/images/" + element
+                img.width = 800
+                var imgParent = document.getElementById("images")
+                imgParent.appendChild( img )
+            })
+        })
+    }
 </script>
 </html>

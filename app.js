@@ -12,6 +12,10 @@ app.use(express.static("public"))
 const port = process.env.PORT ? process.env.PORT : 8000
 
 var files = fs.readdirSync(__dirname + '/public/images/');
+//var files = ['https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 
+//            'https://images.pexels.com/photos/46253/mt-fuji-sea-of-clouds-sunrise-46253.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//           'https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//           'https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260']
 
 app.get("/", (req, res) => {
     return res.send(__dirname + '/public/index.html')
