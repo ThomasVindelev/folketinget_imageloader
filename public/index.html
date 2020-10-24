@@ -29,7 +29,7 @@
     });
 
     loadImages = () => {
-        $('#images').empty().removeData()
+        $('#images').empty().removeData().removeAttr()
         $('body').append('<div id="images"></div>')
         $.get('/photos', (data) => {
             data.response.forEach(element => {
